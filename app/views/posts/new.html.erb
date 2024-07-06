@@ -1,9 +1,11 @@
-<h1>New post</h1>
-
-<%= render "form", post: @post %>
-
-<br>
-
+<div class="row">
+  <div class="col-xl-4 col-md-6 col-sm-8 col-10 mx-auto">
+    <h1>New post</h1>
+    <%= render "form", post: @post %>
+  </div>
+  <br>
+</div>
 <div>
   <%= link_to "Back to posts", posts_path %>
 </div>
+
