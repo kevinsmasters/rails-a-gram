@@ -14,6 +14,8 @@ RSpec.describe PostsController do
     it 'shows a list of all posts' do
       get :index
       expect(response).to have_http_status(:success)
+
+      #check that @posts is set in the controller
     end
   end
 
