@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-
+<div id="posts" class="text-center">
 <%= render @post %>
 <%= link_to "Back to posts", posts_path %>
 <% if user_signed_in? && @post.user == current_user %>
@@ -9,3 +9,4 @@
     <%= button_to "Destroy this post", @post, method: :delete %>
   </div>
 <% end %>
+</div>
