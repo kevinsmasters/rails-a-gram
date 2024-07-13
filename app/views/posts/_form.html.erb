@@ -33,6 +33,9 @@
       <% end %>
     </div>
     <div>
+      <%= form.text_field :user_id, type: 'hidden', value: current_user.id %>
+    </div>
+    <div>
       <%= form.file_field :images, multiple:true %>
     </div>
     <div>
