@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :comments
   devise_for :users
+  resources :users, only: [:show]
   get 'home/about'
   get 'posts/myposts'
   resources :posts
