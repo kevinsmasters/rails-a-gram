@@ -1,4 +1,7 @@
 <div id="<%= dom_id post %>" class="post-container">
+  <% post.images.each do |img| %>
+    <%= image_tag(img, style: 'object-fit: cover; width: 300px; height: 600px;') %>
+  <% end %>
   <p>
     <%= post.title %>
   </p>
@@ -18,8 +21,7 @@
   <p>
     <%= link_to "", post, class: 'post-link' %>
   </p>
-
-  <% post.images.each do |img| %>
-    <%= image_tag(img, style: 'object-fit: cover; width: 300px; height: 600px;') %>
-  <% end %>
 </div>
+<p>
+  <%= link_to post.user.email, post.user %>
+</p>
