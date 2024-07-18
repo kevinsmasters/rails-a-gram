@@ -10,9 +10,14 @@
   </div>
 <% end %>
 </div>
-
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
 <%= render "comments/form", comment: @comment %>
 <% @post.comments.each do |comment| %>
   <%= comment.text %>
   <br>
 <% end %>
+</div>
+</div>
+</div>
