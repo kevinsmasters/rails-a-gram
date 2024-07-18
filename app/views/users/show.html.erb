@@ -5,6 +5,9 @@
     <p><strong><%= @user.bio %></strong></p>
   </div>
 </div>
+<% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, class: "avatar_img" %>
+  <% end %>
 
 
 
