@@ -3,6 +3,6 @@
 
 <div id="posts" class="text-center">
   <% @posts.each do |post| %>
-    <%= render post %>
+    <%= render 'posts/feed_post', post: post %>
   <% end %>
 </div>
