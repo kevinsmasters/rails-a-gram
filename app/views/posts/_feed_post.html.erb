@@ -1,5 +1,7 @@
 <div id="<%= dom_id post %>" class="">
   <% post.images.each do |img| %>
-    <%= image_tag(img, style: 'object-fit: cover; width: 200px; height: 200px;') %>
+    <%= link_to(post) do %>
+      <%= image_tag(img, style: 'object-fit: cover; width: 200px; height: 200px;') %>
+    <% end %>
   <% end %>
 </div>
