@@ -4,6 +4,7 @@
       <%= image_tag(img, style: 'object-fit: cover; width: 500px; height: 500px;') %>
     <% end %>
   <% end %>
+  <%= button_to "like", likes_path, params: { like: { post_id: post.id }}, method: post %>
   <p>
     <%= post.title %>
   </p>
