@@ -15,6 +15,14 @@ class User < ApplicationRecord
     destroy_all
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["email"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["email"]
+  end
+
   before_create :randomize_id
   private
   def randomize_id
