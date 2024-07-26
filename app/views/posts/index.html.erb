@@ -1,5 +1,20 @@
 <%= stylesheet_link_tag('post') %>
 <p class="text-success"><%= notice %></p>
+<% if user_signed_in? %>
+  <%current_user.follow_requests.each do |request| %>
+    <%= request.followerable.email %> wants to follow you
+    <%= button_to "accept", accept_path(request.followerable) %>
+    <%= button_to "decline", decline_path(request.followerable) %>
+  <% end %>
+  Followers
+  <% current_user.followers.each do |follower| %>
+    <p> <%= link_to follower.email, follower %></p>
+  <% end %>
+  Following
+  <% current_user.following.each do |following| %>
+    <p> <%= link_to following.email, following %></p>
+  <% end %>
+<% end %>
 
 <div id="posts" class="text-center">
   <% @posts.each do |post| %>
