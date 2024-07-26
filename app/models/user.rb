@@ -10,6 +10,11 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  def unfollow(user)
+    followerable_relationships.where(followable_id: user.id).
+    destroy_all
+  end
+
   before_create :randomize_id
   private
   def randomize_id
