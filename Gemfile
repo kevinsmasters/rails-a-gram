@@ -47,7 +47,9 @@ gem "followability", "~> 1.1"
 
 gem "ransack"
 
-gem "rails_admin", "~> 3.0"
+gem "rails_admin"
+
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
