@@ -1,6 +1,8 @@
-<div class="text-center">
+<div class="row">
   <% @users.each do |user| %>
-    <%= render user %>
+    <div class="col-12 text-center p-3 .bg-light">
+      <%= render user %>
+    </div>
   <% end %>
   <% if !@users.first.present? %>
     No users found
