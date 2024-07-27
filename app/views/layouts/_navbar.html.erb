@@ -41,8 +41,8 @@
       </li>
       <% end %>
     </ul>
-    <%= form_with url: profiles_index_path, method: :get, class: 'form-inline my-2 my-lg-0' do |form| %>
-      <%= form.search_field :query, value: params[:query], placeholder: "search", class:'search-field form-control mr-sm-2' %>
+    <%= search_form_for @q, url: profiles_index_path, class: 'form-inline my-2 my-lg-0' do |form| %>
+      <%= form.search_field :email_cont, placeholder: "search", class:'search-field form-control mr-sm-2' %>
       <%= form.submit "search", class:"btn btn-outline-success my-2 my-sm-0" %>
     <% end %>
   </div>
