@@ -39,3 +39,5 @@
 
 # IDK what
 .vscode
+
+node_modules/

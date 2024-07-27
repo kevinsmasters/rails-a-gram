@@ -1,6 +1,9 @@
 <%= stylesheet_link_tag('post') %>
 <p class="text-success"><%= notice %></p>
 <% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <p>Signed in as admin</p>
+  <% end %>
   <%current_user.follow_requests.each do |request| %>
     <%= request.followerable.email %> wants to follow you
     <%= button_to "accept", accept_path(request.followerable) %>
