@@ -8,9 +8,9 @@
 <% if @user.avatar.attached? %>
     <%= image_tag @user.avatar, class: "profile_avatar_img" %>
 <% end %>
-<% if current_user.following?(@user) %>
+<% if user_signed_in? && current_user.following?(@user) %>
   <%= button_to "unfollow", unfollow_path(@user) %>
-<% elsif current_user.sent_follow_request_to?(@user) %>
+<% elsifuser_signed_in? && current_user.sent_follow_request_to?(@user) %>
   <%= button_to "cancel follow req", cancel_path(@user) %>
 <% else %>
   <%= button_to "follow", follow_path(@user) %>
