@@ -36,9 +36,14 @@
         </div>
       </li>
       <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to "My posts", posts_myposts_path, class: 'nav-link' %>
-      </li>
+        <li class="nav-item">
+          <%= link_to "My posts", posts_myposts_path, class: 'nav-link' %>
+        </li>
+        <% if current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to "Admin", rails_admin_path, class: 'nav-link' %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
     <%= search_form_for @q, url: profiles_index_path, class: 'form-inline my-2 my-lg-0' do |form| %>
