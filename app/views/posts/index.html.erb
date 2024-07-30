@@ -19,6 +19,6 @@
   <% end %>
 <% end %>
 <%= turbo_frame_tag :results, data: { turbo_action: 'advance' } do %>
-  <div id="posts"></div>
+  <div id="posts" class="text-center"></div>
   <%= turbo_frame_tag :pagination, loading: :lazy, src: posts_path(format: :turbo_stream) %>
 <% end %>
