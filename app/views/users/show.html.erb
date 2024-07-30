@@ -10,7 +10,7 @@
 <% end %>
 <% if user_signed_in? && current_user.following?(@user) %>
   <%= button_to "unfollow", unfollow_path(@user) %>
-<% elsifuser_signed_in? && current_user.sent_follow_request_to?(@user) %>
+<% elsif user_signed_in? && current_user.sent_follow_request_to?(@user) %>
   <%= button_to "cancel follow req", cancel_path(@user) %>
 <% else %>
   <%= button_to "follow", follow_path(@user) %>
