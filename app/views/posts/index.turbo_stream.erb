@@ -1,0 +1,9 @@
+<%= turbo_stream.append %>
+  <% @posts.each do |post| %>
+    <% if user_signed_in? %>
+      <% if current_user.following?(post.user) %>
+        <%= render post %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -18,7 +18,7 @@
     <p> <%= link_to following.email, following %></p>
   <% end %>
 <% end %>
-  <%== pagy_nav(@pagy) %>
+  <%== pagy_bootstrap_nav(@pagy) %>
 <div id="posts" class="text-center">
   <% @posts.each do |post| %>
     <%= render post %>
