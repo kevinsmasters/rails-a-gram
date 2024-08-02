@@ -1,6 +1,8 @@
-<h2><%= user.user_name %></h2>
+<h2><%= link_to user.user_name, user %></h2>
 <p><%= user.email %></p>
-<p><strong><%= user.bio %></strong></p>
+
+<h6><%= user.followers.count %> followers</h6>
+<h6><%= user.following.count %> following</h6>
 <% if user.avatar.attached? %>
     <%= image_tag user.avatar, class: "profile_avatar_img" %>
 <% end %>
@@ -9,5 +11,7 @@
 <% elsif current_user.sent_follow_request_to?(user) %>
   <%= button_to "cancel follow req", cancel_path(user) %>
 <% else %>
-  <%= button_to "follow", follow_path(user) %>
+  <% unless user.id == current_user.id %>
+    <%= button_to "follow", follow_path(user) %>
+  <% end %>
 <% end %>
