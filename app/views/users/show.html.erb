@@ -3,18 +3,29 @@
     <h1><%= @user.user_name %></h1>
     <p><%= @user.email %></p>
     <p><strong><%= @user.bio %></strong></p>
+    <% if @user.avatar.attached? %>
+      <%= image_tag @user.avatar, class: "profile_avatar_img" %>
+    <% end %>
+    <% if user_signed_in? && current_user.following?(@user) %>
+      <%= button_to "unfollow", unfollow_path(@user) %>
+    <% elsif user_signed_in? && current_user.sent_follow_request_to?(@user) %>
+      <%= button_to "cancel follow req", cancel_path(@user) %>
+    <% else %>
+      <% unless @user.id == current_user.id %>
+        <%= button_to "follow", follow_path(user) %>
+      <% end %>
+    <% end %>
+    <h5>Followers</h5>
+    <% @user.followers.each do |follower| %>
+      <%= render follower %>
+    <% end %>
+    <h5>Following</h5>
+    <% @user.following.each do |follow| %>
+      <%= render follow %>
+    <% end %>
   </div>
 </div>
-<% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar, class: "profile_avatar_img" %>
-<% end %>
-<% if user_signed_in? && current_user.following?(@user) %>
-  <%= button_to "unfollow", unfollow_path(@user) %>
-<% elsif user_signed_in? && current_user.sent_follow_request_to?(@user) %>
-  <%= button_to "cancel follow req", cancel_path(@user) %>
-<% else %>
-  <%= button_to "follow", follow_path(@user) %>
-<% end %>
+
 
 
 
