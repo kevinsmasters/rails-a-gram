@@ -23,7 +23,7 @@ class User < ApplicationRecord
     ["email"]
   end
 
-  before_create :randomize_id
+  # before_create :randomize_id
   private
   def randomize_id
     begin

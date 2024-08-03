@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
-  before_create :randomize_id
+  # before_create :randomize_id
   private
   def randomize_id
     begin
