@@ -20,7 +20,8 @@ class PostsController < ApplicationController
   end
 
   def discover
-
+    @posts = Post.order(:created_at => :asc)
+    @pagy, @posts = pagy_countless(@posts, limit: 2)
   end
 
   # GET /posts/new
