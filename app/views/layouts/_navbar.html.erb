@@ -1,18 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <% if user_signed_in? %>
-    <% if current_user.avatar.attached? %>
-      <%= link_to image_tag(current_user.avatar), current_user, class: "avatar_img" %>
-    <% end %>
-  <% end %>
   <%= link_to "RailsAGram", root_path, class: 'navbar-brand' %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to 'Home', root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Search
+        </a>
+        <div class="dropdown-menu">
+          <%= search_form_for @q, url: profiles_index_path, class: 'form-inline my-2 my-lg-0' do |form| %>
+            <%= form.search_field :email_cont, placeholder: "search", class:'search-field form-control mr-sm-2' %>
+            <%= form.submit "search", class:"btn btn-outline-success my-2 my-sm-0" %>
+          <% end %>
+        </div>
       </li>
       <li class="nav-item active">
         <%= link_to 'Discover', posts_discover_path, class: 'nav-link' %>
@@ -20,16 +25,23 @@
       <li class="nav-item">
         <%= link_to "Upload post", new_post_path, class: 'nav-link' %>
       </li>
+      <li class="nav-item">
+      <% if user_signed_in? %>
+        <% if current_user.avatar.attached? %>
+          <%= link_to image_tag(current_user.avatar), current_user, class: "avatar_img" %>
+        <% end %>
+        <%= link_to "Profile", current_user, class: 'nav-link' %>
+      <% end %>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          Account
+          More
         </a>
         <div class="dropdown-menu">
           <% if !user_signed_in? %>
             <%= link_to "Sign in", new_user_session_path, class: 'dropdown-item' %>
             <%= link_to "Sign up", new_user_registration_path, class: 'dropdown-item' %>
           <% else %>
-            <%= link_to "My profile", current_user, class: 'dropdown-item' %>
             <%= link_to "Edit account", edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to "Sign out", destroy_user_session_path, data: { "turbo-method": :delete, "turbo-confirm": "Are you sure you want to sign out?" }, class: 'dropdown-item' %>
           <% end %>
@@ -49,9 +61,6 @@
         <% end %>
       <% end %>
     </ul>
-    <%= search_form_for @q, url: profiles_index_path, class: 'form-inline my-2 my-lg-0' do |form| %>
-      <%= form.search_field :email_cont, placeholder: "search", class:'search-field form-control mr-sm-2' %>
-      <%= form.submit "search", class:"btn btn-outline-success my-2 my-sm-0" %>
-    <% end %>
+    
   </div>
 </nav>
