@@ -14,11 +14,6 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
   end
 
-  def myposts
-    @posts = current_user.posts.all
-    # @posts = Post.all
-  end
-
   def discover
     @posts = Post.order(:created_at => :asc)
     @pagy, @posts = pagy_countless(@posts, limit: 2)
