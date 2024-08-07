@@ -51,9 +51,6 @@
         </div>
       </li>
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "My posts", posts_myposts_path, class: 'nav-link' %>
-        </li>
         <% if current_user.admin? %>
           <li class="nav-item">
             <%= link_to "Admin", rails_admin_path, class: 'nav-link' %>
