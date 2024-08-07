@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project based off of [MalachiRails Learn Ruby on Rails Create Instagram](https://www.youtube.com/@MalachiRails) with some customizations added along the way.
 
-Things you may want to cover:
+There were some missing details in the tutorial that made for great practice and problem-solving in Rails.
 
-* Ruby version
+My inspiration for taking on this tutorial came from the final project requirement in an Udemy Ruby on Rails for Developers course I had just completed. 
 
-* System dependencies
+The main requirements for the final project were:
 
-* Configuration
+- Follow users
+- Build news feeds of their updates
+- Search users
+- Comments to images
+- Likes
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+More Rspec tests to be added.
