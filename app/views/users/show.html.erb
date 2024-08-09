@@ -1,5 +1,4 @@
-<div class="row">
-  <div class="col-12 text-center p-3 .bg-light">
+
     <h1><%= @user.user_name %></h1>
     <p><strong><%= @user.bio %></strong><br>
     <% if user_signed_in? && @user.id == current_user.id %>
@@ -22,17 +21,10 @@
       <% end %>
     <% end %>
     <hr />
-    <div class="row">
-  <div class="col-6 offset-3">
-    <div id="posts" class="d-flex">
       <% @user.posts.each do |post| %>
         <%= render 'posts/feed_post', post: post %>
       <% end %>
-    </div>
-  </div>
-</div>
-  </div>
-</div>
+
 
 
 
