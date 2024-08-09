@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag('post') %>
-<p class="text-success"><%= notice %></p>
-<% if user_signed_in? %>
+
+<%
+=begin%>
+ <% if user_signed_in? %>
   <% if current_user.admin? %>
     <p>Signed in as admin</p>
   <% end %>
@@ -17,8 +19,10 @@
   <% current_user.following.each do |following| %>
     <p> <%= link_to following.email, following %></p>
   <% end %>
-<% end %>
+<% end %> 
+<%
+=end%>
 <%= turbo_frame_tag :results, data: { turbo_action: 'advance' } do %>
-  <div id="posts" class="text-center"></div>
+  <div id="posts"></div>
   <%= turbo_frame_tag :pagination, loading: :lazy, src: posts_path(format: :turbo_stream) %>
 <% end %>
