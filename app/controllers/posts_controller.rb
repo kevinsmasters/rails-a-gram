@@ -55,10 +55,10 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post = Post.find(params[:id])
     flash[:notice] = "Post deleted"
-    @post.destroy
-    redirect_to user_path
+    # @post.destroy
+    Post.find(params[:id]).destroy
+    redirect_to current_user
   end
 
   private
