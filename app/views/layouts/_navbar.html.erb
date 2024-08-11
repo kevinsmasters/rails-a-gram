@@ -73,7 +73,7 @@
         <% if current_user.avatar.attached? %>
           <%= link_to image_tag(current_user.avatar), current_user, class: "avatar_img" %>
         <% end %>
-        <span class="d-none d-sm-inline mx-1">Joe</span>
+        <span class="d-none d-sm-inline mx-1"><%= current_user.user_name %></span>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
         <li><%= link_to "Profile", current_user, class: 'nav-link' %></li>
