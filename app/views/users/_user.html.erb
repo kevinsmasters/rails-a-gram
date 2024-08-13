@@ -1,23 +1,32 @@
-<h1><%= @user.user_name %></h1>
-    WAT
-    <p><strong><%= @user.bio %></strong><br>
-    <% if user_signed_in? && @user.id == current_user.id %>
-      <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary" %>
-    <% end %>
-    </p>
-    <p><%= @user.posts.count %> posts</p>
-    <p><%= @user.followers.count %> followers</p>
-    <p><%= @user.following.count %> following</p>
-    <% if @user.avatar.attached? %>
-      <%= image_tag @user.avatar, class: "profile_avatar_img" %>
-    <% end %>
-    <% if user_signed_in? && current_user.following?(@user) %>
-      <%= button_to "unfollow", unfollow_path(@user) %>
-    <% elsif user_signed_in? && current_user.sent_follow_request_to?(@user) %>
-      <%= button_to "cancel follow req", cancel_path(@user) %>
-    <% else %>
-      <% unless @user.id == current_user.id %>
-        <%= button_to "follow", follow_path(@user) %>
+<div class="container text-center">
+  <div class="row align-items-start">
+    <div class="col-3">
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, class: "profile_avatar_img" %>
       <% end %>
-    <% end %>
+      <% if user_signed_in? && current_user.following?(@user) %>
+        <%= button_to "unfollow", unfollow_path(@user) %>
+      <% elsif user_signed_in? && current_user.sent_follow_request_to?(@user) %>
+        <%= button_to "cancel follow req", cancel_path(@user) %>
+      <% else %>
+        <% unless @user.id == current_user.id %>
+          <%= button_to "follow", follow_path(@user) %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-9">
+      <h1><%= @user.user_name %></h1>
+      <% if user_signed_in? && @user.id == current_user.id %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary" %>
+      <% end %>
+      <p><%= @user.posts.count %> posts</p>
+      <p><%= @user.followers.count %> followers</p>
+      <p><%= @user.following.count %> following</p>
+      <p><strong><%= @user.bio %></strong><br></p>
+    </div>
+  </div>
+</div>
+    
+    
+    
     <hr />
