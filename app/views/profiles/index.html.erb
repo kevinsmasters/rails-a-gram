@@ -1,7 +1,7 @@
 <div class="row">
   <% @users.each do |user| %>
 
-      <%= render user %>
+      <%= render 'profiles/user_profile', user: user %>
 
   <% end %>
   <% if !@users.first.present? %>
