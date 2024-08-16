@@ -27,3 +27,10 @@
 form i.pw-reveal {
   cursor: pointer;
 }
+
+.dropdown-toggle::after {
+  margin-left: auto;
+}
+.dropdown-menu {
+  padding: 5px;
+}
