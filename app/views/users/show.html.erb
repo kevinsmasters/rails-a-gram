@@ -1,10 +1,10 @@
 
-    <%= render 'users/user', user: @user %>
-    <hr />
-      <% @user.posts.each do |post| %>
-        <%= render 'posts/feed_post', post: post %>
-      <% end %>
-
+<%= render 'users/user', user: @user %>
+<div class="d-flex flex-column">
+  <% @user.posts.each do |post| %>
+    <%= render 'posts/feed_post', post: post %>
+  <% end %>
+</div>
 
 
 
