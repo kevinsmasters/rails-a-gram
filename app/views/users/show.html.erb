@@ -1,6 +1,6 @@
 
 <%= render 'users/user', user: @user %>
-<div class="d-flex flex-column">
+<div class="d-flex flex-row flex-wrap">
   <% @user.posts.each do |post| %>
     <%= render 'posts/feed_post', post: post %>
   <% end %>
