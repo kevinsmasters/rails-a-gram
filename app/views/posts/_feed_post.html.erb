@@ -1,7 +1,7 @@
 <div id="<%= dom_id post %>" class="p-1">
   <% post.images.each do |img| %>
     <%= link_to(post) do %>
-      <%= image_tag(img, style: 'object-fit: cover; width: 200px; height: 200px;') %>
+      <%= image_tag(img, class: 'post-thumb') %>
     <% end %>
   <% end %>
 </div>

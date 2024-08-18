@@ -34,3 +34,13 @@ form i.pw-reveal {
 .dropdown-menu {
   padding: 5px;
 }
+
+.post-thumb {
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+}
+
+.post-thumb:hover {
+  opacity: .7;
+}
